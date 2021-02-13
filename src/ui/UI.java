@@ -182,7 +182,7 @@ public class UI {
             System.out.println("3. Ascending sort by Last name ");
             System.out.println("4. Descending sort by Last name ");
             System.out.println("5. Incremental sort by Salary ");
-            System.out.println("6. Decreasing sort by Salary ");
+            System.out.println("6. Decremental sort by Salary ");
             System.out.println("0. Go back to previous menu");
 
             switch (readInt()) {
