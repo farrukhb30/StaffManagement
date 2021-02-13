@@ -12,27 +12,30 @@ public class UI {
 
     //The first menu runs when the program starts.
     public static void runProgram() {
-        System.out.println("\nWelcome to the Employee Management System!");
-        System.out.println("Please input number to choose from the menu.");
-        System.out.println("1. Employee Management");
-        System.out.println("2. Statistics");
-        System.out.println("3. Input dummy data");
-        System.out.println("0. Exit");
+        while (true) {
 
-        switch (readInt()) {
-            case 1:
-                employeeManagement();
-                break;
-            case 2:
-                statistics();
-                break;
-            case 3:
-                loadDB();
-                break;
-            case 0:
-                System.exit(0);
-            default:
-                System.out.println("Invalid input. Please try again.");
+            System.out.println("\nWelcome to the Employee Management System!");
+            System.out.println("Please input number to choose from the menu.");
+            System.out.println("1. Employee Management");
+            System.out.println("2. Statistics");
+            System.out.println("3. Input dummy data");
+            System.out.println("0. Exit");
+
+            switch (readInt()) {
+                case 1:
+                    employeeManagement();
+                    break;
+                case 2:
+                    statistics();
+                    break;
+                case 3:
+                    loadDB();
+                    break;
+                case 0:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid input. Please try again.");
+            }
         }
     }
 
@@ -184,7 +187,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
                 case 2 -> {
 
@@ -195,7 +198,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
 
                 case 3 -> {
@@ -206,7 +209,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
                 case 4 -> {
 
@@ -217,7 +220,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
 
                 case 5 -> {
@@ -229,7 +232,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
                 case 6 -> {
 
@@ -240,7 +243,7 @@ public class UI {
 
                     employees.forEach(employee -> {
                         System.out.println(employee);
-                });
+                    });
                 }
                 case 0 -> {
                     boolSortingMenu = false;
