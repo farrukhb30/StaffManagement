@@ -131,7 +131,7 @@ public class UI {
                     runProgram();
                 }
                 default ->
-                    bonusMenuLoop = false;
+                    System.out.println("Invalid input. Please try again.");
             }
         }
     }
@@ -183,6 +183,10 @@ public class UI {
                     Comparator<Employee> sortByFirstNameAcending = Comparator.comparing(e -> e.getFirstName());
                     employees.sort(sortByFirstNameAcending);
 
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by first name Ascending");
+                    System.out.println("====================================================================================================");
+
                     tableHeader();
 
                     employees.forEach(employee -> {
@@ -191,8 +195,12 @@ public class UI {
                 }
                 case 2 -> {
 
-                    Comparator<Employee> sortByNameDescending = Comparator.comparing(e -> e.getFirstName());
-                    employees.sort(sortByNameDescending.reversed());
+                    Comparator<Employee> sortByFirstNameDescending = Comparator.comparing(e -> e.getFirstName());
+                    employees.sort(sortByFirstNameDescending.reversed());
+
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by first name Descending");
+                    System.out.println("====================================================================================================");
 
                     tableHeader();
 
@@ -205,6 +213,10 @@ public class UI {
                     Comparator<Employee> sortByLastNameAcending = Comparator.comparing(e -> e.getLastName());
                     employees.sort(sortByLastNameAcending);
 
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by last name Ascending");
+                    System.out.println("====================================================================================================");
+
                     tableHeader();
 
                     employees.forEach(employee -> {
@@ -215,6 +227,10 @@ public class UI {
 
                     Comparator<Employee> sortByLastNameDescending = Comparator.comparing(e -> e.getLastName());
                     employees.sort(sortByLastNameDescending.reversed());
+
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by last name Descending");
+                    System.out.println("====================================================================================================");
 
                     tableHeader();
 
@@ -230,6 +246,10 @@ public class UI {
 
                     tableHeader();
 
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by salary in incremental order");
+                    System.out.println("====================================================================================================");
+
                     employees.forEach(employee -> {
                         System.out.println(employee);
                     });
@@ -238,6 +258,10 @@ public class UI {
 
                     Comparator<Employee> sortBySalaryDecremental = Comparator.comparing(e -> e.getSalary());
                     employees.sort(sortBySalaryDecremental.reversed());
+
+                    System.out.println("\n====================================================================================================");
+                    System.out.println("\t\t\t\t\tSorted by salary in decremental order");
+                    System.out.println("====================================================================================================");
 
                     tableHeader();
 
