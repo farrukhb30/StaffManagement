@@ -23,8 +23,8 @@ public class TestSpecialist extends Employee implements Manageable {
 
     }
 
-    public TestSpecialist(boolean ISTQBcertified, String name, Gender gender, double salary) {
-        super(name, gender, salary);
+    public TestSpecialist(boolean ISTQBcertified, String firstName, String lastName, Gender gender, double salary) {
+        super(firstName, lastName, gender, salary);
         this.ISTQBcertified = ISTQBcertified;
 
         this.genderCounter();
@@ -108,7 +108,10 @@ public class TestSpecialist extends Employee implements Manageable {
         switch (readInt()) {
             case 1:
                 System.out.print("New name: ");
-                this.setName(sc.nextLine());
+                System.out.println("Input First name:");
+                this.setFirstName(sc.nextLine());
+                System.out.println("Input Last name:");
+                this.setLastName(sc.nextLine());
                 break;
             case 2:
                 System.out.println("New gender: ");

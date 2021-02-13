@@ -20,8 +20,8 @@ public class GraphicDesigner extends Employee implements Manageable {
 
     }
 
-    public GraphicDesigner(String techStack, String name, Gender gender, double salary) {
-        super(name, gender, salary);
+    public GraphicDesigner(String techStack, String firstName, String lastName, Gender gender, double salary) {
+        super(firstName, lastName , gender, salary);
         this.techStack = techStack;
         this.genderCounter();
 
@@ -99,7 +99,10 @@ public class GraphicDesigner extends Employee implements Manageable {
         switch (readInt()) {
             case 1:
                 System.out.print("New name: ");
-                this.setName(sc.nextLine());
+                System.out.println("Input First name:");
+                this.setFirstName(sc.nextLine());
+                System.out.println("Input Last name:");
+                this.setLastName(sc.nextLine());
                 break;
             case 2:
                 System.out.println("New gender: ");

@@ -9,7 +9,8 @@ public class Employee {
 
     public static int employeeNumberGenerator = 1;
     private int employeeNr;
-    private String name;
+    private String firstName;
+    private String lastName;
     private Gender gender;
     private double salary;
     private double bonus;
@@ -21,10 +22,10 @@ public class Employee {
         this.employeeNr = employeeNumberGenerator++;
     }
 
-    public Employee(String name, Gender gender, double salary) {
+    public Employee(String firstName, String lastName, Gender gender, double salary) {
 
         this.employeeNr = employeeNumberGenerator++;
-        this.name = name;
+        setName(firstName, lastName);
         this.gender = gender;
         this.salary = salary;
         this.salaryWithBonus = salary;
@@ -35,6 +36,16 @@ public class Employee {
             noOfFemaleEmployees += 1;
         }
 
+    }
+
+    private void setName(String firstName, String surName) {
+        this.firstName = firstName;
+        this.lastName = surName;
+    }
+
+    public String getName() {
+     
+        return this.firstName.concat(" ").concat(lastName);
     }
 
     public static double getNoOfMaleEmployees() {
@@ -69,13 +80,6 @@ public class Employee {
         this.employeeNr = employeeNr;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Gender getGender() {
         return gender;
@@ -106,38 +110,54 @@ public class Employee {
 
     public void updateEmployee() {
     }
-    
-    public void genderCounter(){
+
+    public void genderCounter() {
     }
-            
-    public void genderDecrementer(){
+
+    public void genderDecrementer() {
     }
 
     public void addEmployee() {
 
-        System.out.println("Input name:");
-        this.setName(sc.nextLine());
+        System.out.println("Input First name:");
+        this.firstName = sc.nextLine();
+        System.out.println("Input Last name:");
+        this.lastName = sc.nextLine();
         System.out.println("Input gender:");
-        Gender.readGender(this);   
+        Gender.readGender(this);
         System.out.println("Input salary:");
         this.setSalary(readDouble());
         this.bonus();
 
         if (this.getGender().getText().equalsIgnoreCase("male")) {
             noOfMaleEmployees += 1;
-       } else if (this.getGender().getText().equalsIgnoreCase("female")) {
+        } else if (this.getGender().getText().equalsIgnoreCase("female")) {
             noOfFemaleEmployees += 1;
         }
 
     }
 
-
     @Override
     public String toString() {
 
-        return theStringTrimmer(String.valueOf(employeeNr)) + theStringTrimmer(name) + theStringTrimmer(gender.getText()) + theStringTrimmer(df.format(salary)) + theStringTrimmer(df.format(salaryWithBonus));
+        return theStringTrimmer(String.valueOf(employeeNr)) + theStringTrimmer(getName()) + theStringTrimmer(gender.getText()) + theStringTrimmer(df.format(salary)) + theStringTrimmer(df.format(salaryWithBonus));
 
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
 }

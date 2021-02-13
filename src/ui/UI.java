@@ -164,42 +164,94 @@ public class UI {
 
     private static void sortingMenu() {
 
-        
+        boolean boolSortingMenu = true;
+        do {
+            System.out.println("\nPlease select the sorting criteria for employee?");
+            System.out.println("1. Ascending sort by Firstname ");
+            System.out.println("2. Descending sort by First name ");
+            System.out.println("3. Ascending sort by Last name ");
+            System.out.println("4. Descending sort by Last name ");
+            System.out.println("5. Incremental sort by Salary ");
+            System.out.println("6. Decreasing sort by Salary ");
+            System.out.println("0. Go back to main menu");
 
-        System.out.println("\nPlease select the sorting criteria for employee?");
-        System.out.println("1. Ascending sort by name ");
-        System.out.println("2. Descending sort by name ");
-        System.out.println("3. Stigande sort by Salary ");
-        System.out.println("3. Fallande sort by Salary ");
+            switch (readInt()) {
+                case 1 -> {
+                    Comparator<Employee> sortByFirstNameAcending = Comparator.comparing(e -> e.getFirstName());
+                    employees.sort(sortByFirstNameAcending);
 
-        switch (readInt()) {
-            case 1 -> {
-                Comparator<Employee> sortByNameAcending = Comparator.comparing(e -> e.getName());
-                employees.sort(sortByNameAcending);
+                    tableHeader();
 
-                for (Employee employee : employees) {
-                    System.out.println(employee);
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
+                }
+                case 2 -> {
+
+                    Comparator<Employee> sortByNameDescending = Comparator.comparing(e -> e.getFirstName());
+                    employees.sort(sortByNameDescending.reversed());
+
+                    tableHeader();
+
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
                 }
 
-            }
-            case 2 -> {
-                
-                Comparator<Employee> sortByNameDescending = Comparator.comparing(e -> e.getName());
-                employees.sort(sortByNameDescending.reversed());
+                case 3 -> {
+                    Comparator<Employee> sortByLastNameAcending = Comparator.comparing(e -> e.getLastName());
+                    employees.sort(sortByLastNameAcending);
 
-                for (Employee employee : employees) {
-                    System.out.println(employee);
+                    tableHeader();
+
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
+                }
+                case 4 -> {
+
+                    Comparator<Employee> sortByLastNameDescending = Comparator.comparing(e -> e.getLastName());
+                    employees.sort(sortByLastNameDescending.reversed());
+
+                    tableHeader();
+
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
                 }
 
-            }
-            case 3 -> {
+                case 5 -> {
 
+                    Comparator<Employee> sortBySalaryIncremental = Comparator.comparing(e -> e.getSalary());
+                    employees.sort(sortBySalaryIncremental);
+
+                    tableHeader();
+
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
+                }
+                case 6 -> {
+
+                    Comparator<Employee> sortBySalaryDecremental = Comparator.comparing(e -> e.getSalary());
+                    employees.sort(sortBySalaryDecremental.reversed());
+
+                    tableHeader();
+
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
+                    }
+                }
+                case 0 -> {
+                    boolSortingMenu = false;
+                    runProgram();
+
+                }
+                default ->
+                    System.out.println("Invalid input. Please try again.");
             }
-            case 0 -> {
-            }
-            default ->
-                System.out.println("Invalid input. Please try again.");
-        }
+
+        } while (boolSortingMenu);
 
     }
 
