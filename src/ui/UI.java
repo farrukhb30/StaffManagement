@@ -182,9 +182,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
                 case 2 -> {
 
@@ -193,9 +193,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
 
                 case 3 -> {
@@ -204,9 +204,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
                 case 4 -> {
 
@@ -215,9 +215,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
 
                 case 5 -> {
@@ -227,9 +227,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
                 case 6 -> {
 
@@ -238,9 +238,9 @@ public class UI {
 
                     tableHeader();
 
-                    for (Employee employee : employees) {
+                    employees.forEach(employee -> {
                         System.out.println(employee);
-                    }
+                });
                 }
                 case 0 -> {
                     boolSortingMenu = false;
