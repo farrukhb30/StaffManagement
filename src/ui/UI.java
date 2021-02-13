@@ -22,18 +22,15 @@ public class UI {
             System.out.println("0. Exit");
 
             switch (readInt()) {
-                case 1:
+                case 1 ->
                     employeeManagement();
-                    break;
-                case 2:
+                case 2 ->
                     statistics();
-                    break;
-                case 3:
+                case 3 ->
                     loadDB();
-                    break;
-                case 0:
+                case 4 ->
                     System.exit(0);
-                default:
+                default ->
                     System.out.println("Invalid input. Please try again.");
             }
         }
