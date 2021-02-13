@@ -1,6 +1,7 @@
-
 package ui;
 
+import java.util.Comparator;
+import models.Employee;
 import models.GraphicDesigner;
 import static models.EmployeeManagement.*;
 import models.Programmer;
@@ -16,7 +17,6 @@ public class UI {
         System.out.println("1. Employee Management");
         System.out.println("2. Statistics");
         System.out.println("3. Input dummy data");
-        System.out.println("4. Sorting TEST");
         System.out.println("0. Exit");
 
         switch (readInt()) {
@@ -29,8 +29,6 @@ public class UI {
             case 3:
                 loadDB();
                 break;
-            case 4:
-                testsorting();
             case 0:
                 System.exit(0);
             default:
@@ -73,8 +71,9 @@ public class UI {
         System.out.println("\n1. Average salary");
         System.out.println("2. Gender distribution");
         System.out.println("3. Bonus payments");
-        System.out.println("4. Highest salary in company");
-        System.out.println("5. Lowest salary in company");
+        System.out.println("4. Sorting of employee record");
+        System.out.println("5. Highest salary in company");
+        System.out.println("6. Lowest salary in company");
         System.out.println("0. Go back to main menu");
 
         switch (readInt()) {
@@ -86,10 +85,13 @@ public class UI {
             case 3 ->
                 bonusMenu();
             case 4 ->
-                findHighestPaidEmployee();
+                sortingMenu();
             case 5 ->
+                findHighestPaidEmployee();
+            case 6 ->
                 findLowestPaidEmployee();
             case 0 -> {
+                runProgram();
             }
             default ->
                 System.out.println("Invalid input! Please try again.");
@@ -117,7 +119,7 @@ public class UI {
                     totalGraphicDesignerBonusPayments();
                 case 4 ->
                     totalTestSpecialistBonusPayments();
-                case 5 ->{
+                case 5 -> {
                     bonusMenuLoop = false;
                     statistics();
                 }
@@ -138,26 +140,67 @@ public class UI {
         System.out.println("2. Graphic Designer");
         System.out.println("3. Test Specialist");
         System.out.println("0. Go back to main menu");
-        switch (sc.nextLine()) {
-            case "1" -> {
+        switch (readInt()) {
+            case 1 -> {
                 Programmer p = new Programmer();
                 p.addEmployee();
             }
-            case "2" -> {
+            case 2 -> {
                 GraphicDesigner g = new GraphicDesigner();
                 g.addEmployee();
             }
-            case "3" -> {
+            case 3 -> {
                 TestSpecialist t = new TestSpecialist();
                 t.addEmployee();
             }
-            case "0" -> {
+            case 0 -> {
             }
             default ->
                 System.out.println("Invalid input. Please try again.");
         }
         printAllEmployees();
         System.out.println("");
+    }
+
+    private static void sortingMenu() {
+
+        
+
+        System.out.println("\nPlease select the sorting criteria for employee?");
+        System.out.println("1. Ascending sort by name ");
+        System.out.println("2. Descending sort by name ");
+        System.out.println("3. Stigande sort by Salary ");
+        System.out.println("3. Fallande sort by Salary ");
+
+        switch (readInt()) {
+            case 1 -> {
+                Comparator<Employee> sortByNameAcending = Comparator.comparing(e -> e.getName());
+                employees.sort(sortByNameAcending);
+
+                for (Employee employee : employees) {
+                    System.out.println(employee);
+                }
+
+            }
+            case 2 -> {
+                
+                Comparator<Employee> sortByNameDescending = Comparator.comparing(e -> e.getName());
+                employees.sort(sortByNameDescending.reversed());
+
+                for (Employee employee : employees) {
+                    System.out.println(employee);
+                }
+
+            }
+            case 3 -> {
+
+            }
+            case 0 -> {
+            }
+            default ->
+                System.out.println("Invalid input. Please try again.");
+        }
+
     }
 
 }
