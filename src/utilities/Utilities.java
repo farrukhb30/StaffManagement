@@ -98,7 +98,7 @@ public class Utilities {
     }
 
     public static String theStringTrimmer(String s) {
-        if (s.length() < 15) {
+        if (s.length() <= 15) {
             int max = 15 - s.length();
             for (int i = 0; i <= max; i++) {
                 s = s + " ";

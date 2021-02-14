@@ -32,7 +32,7 @@ public class EmployeeManagement {
 
         printAllEmployees();
     }
-    
+
     public static void printEmployeeByID() {
 
         printAllEmployees();
@@ -121,11 +121,20 @@ public class EmployeeManagement {
 
         System.out.println("\nGender distribution among employees respective their professional role");
 
+        System.out.println("\nPrecentage distribution among Programmers");
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+
         System.out.printf("Male programmers percentage: %.2f\n", (double) ((Programmer.getNoOfMaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
         System.out.printf("Female programmers percentage : %.2f\n", (double) ((Programmer.getNoOfFemaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
 
+        System.out.println("\nPrecentage distribution among Graphic Designers");
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+
         System.out.printf("Male graphic designres percentage: %.2f\n", (double) ((GraphicDesigner.getNoOfMaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
         System.out.printf("Female graphic designers percentage : %.2f\n", (double) ((GraphicDesigner.getNoOfFemaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
+
+        System.out.println("\nPrecentage distribution among Test Specialists");
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
 
         System.out.printf("Male programmers percentage: %.2f\n", (double) ((TestSpecialist.getNoOfMaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
         System.out.printf("Female programmers percentage : %.2f\n", (double) ((TestSpecialist.getNoOfFemaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
@@ -261,8 +270,7 @@ public class EmployeeManagement {
         employees.forEach(e -> {
             System.out.println(e);
         });
-        
-        
+
         employees.sort(sortBySalary);
         System.out.println("\n======================================================================================================");
         System.out.println("\t\t\t\t\tSorted by Salary fallande");
@@ -271,8 +279,7 @@ public class EmployeeManagement {
         employees.forEach(e -> {
             System.out.println(e);
         });
-        
-        
+
         employees.sort(sortBySalaryStigande);
         System.out.println("\n=======================================================================================================");
         System.out.println("\t\t\t\t\tSorted by Salary stigande");
@@ -301,9 +308,9 @@ public class EmployeeManagement {
 
         return swedishCollator.compare(e1.getName(), e2.getName());
     }
-    
-    public static int sortByEmployeeSalary(Employee e1, Employee e2){
-    
+
+    public static int sortByEmployeeSalary(Employee e1, Employee e2) {
+
         return Double.compare(e1.getSalary(), e2.getSalary());
     }
 
